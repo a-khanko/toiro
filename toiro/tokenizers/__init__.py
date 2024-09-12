@@ -11,6 +11,7 @@ from .tokenizer_utils import (
     is_fugashi_ipadic_available,
     is_tinysegmenter_available,
     is_fugashi_unidic_available,
+    is_hermes_available,
     available_tokenizers
 )
 
@@ -73,6 +74,10 @@ if is_tinysegmenter_available():
 if is_fugashi_unidic_available():
     from .tokenizer_fugashi_unidic import tokenize as tokenize_fugashi_unidic
     from .tokenizer_fugashi_unidic import original_usage as original_fugashi_unidic
+
+if is_hermes_available():
+    from .tokenizer_hermes import tokenize as tokenize_hermes
+    from .tokenizer_hermes import original_usage as original_hermes
 
 
 from .tokenizer_report import (

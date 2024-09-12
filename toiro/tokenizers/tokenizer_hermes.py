@@ -49,18 +49,6 @@ def tokenize(text):
 
 
 def original_usage(text):
-    """
-    Return the analysis results by spacy.
-
-    Parameters
-    ----------
-    text : str
-        An input text
-
-    Returns
-    -------
-    tokens : spacy.tokens.doc.Doc
-        The analysis results by spacy
-    """
-    tokens = nlp(text)
-    return tokens
+    encoded_text = text.encode('utf-8')
+    output = hermes_client.language_tool(text=encoded_text, language='ja')
+    return output

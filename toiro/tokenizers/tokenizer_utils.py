@@ -123,6 +123,15 @@ except:
     _fugashi_unidic_version = False
 
 
+try:
+    from aii_python_seu_clients.hermes.client import HermesClient
+    _hermes_available = True
+    _hermes_version = ""
+except:
+    _hermes_available = False
+    _nagisa_version = False
+
+
 def is_mecab_available():
     """
     Check if the library is available.
@@ -378,6 +387,10 @@ def is_fugashi_unidic_available():
     return _fugashi_unidic_available
 
 
+def is_hermes_available():
+    return _hermes_available
+
+
 def available_tokenizers():
     """
     Return a list of available libraries.
@@ -441,6 +454,10 @@ def available_tokenizers():
         "fugashi-unidic": {
             "is_available": is_fugashi_unidic_available(),
             "version": _fugashi_unidic_version
+        },
+        "hermes": {
+            "is_available": is_hermes_available(),
+            "version": _hermes_version
         }
     }
     return available_tokenizers_dict
